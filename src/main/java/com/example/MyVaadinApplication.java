@@ -15,11 +15,8 @@
  */
 package com.example;
 
-import com.example.ui.ExpenseForm;
 import com.example.ui.ExpenseTable;
 import com.vaadin.Application;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Window;
 
 /**
@@ -35,17 +32,6 @@ public class MyVaadinApplication extends Application
     {
         window = new Window("My Vaadin Application");
         setMainWindow(window);
-        Button button = new Button("Click Me");
-        button.addListener(new Button.ClickListener() {
-            public void buttonClick(ClickEvent event) {
-                Window newWindow = new Window("Expense Form");
-                newWindow.setModal(true);
-                newWindow.addComponent(new ExpenseForm());
-                newWindow.getContent().setSizeUndefined();
-                window.addWindow(newWindow);
-            }
-        });
-        window.addComponent(button);
         window.addComponent(new ExpenseTable());
         
     }
