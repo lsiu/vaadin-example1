@@ -25,12 +25,12 @@ public class ExpenseForm extends CustomComponent {
 		form = new Form();
 		form.setFormFieldFactory(new ExpenseFieldFactory());
 		form.setItemDataSource(new BeanItem<Expense>(new Expense()));
+		form.setVisibleItemProperties(new Object[] { "transactionDate", "summary", "amount"});
 		return form;
 	}
 
 	private void initMainLayout() {
 		mainLayout = new VerticalLayout();
-		mainLayout.setMargin(true);
 		mainLayout.setWidth("400px");
 	}
 }
