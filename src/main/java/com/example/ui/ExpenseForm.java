@@ -23,6 +23,7 @@ public class ExpenseForm extends CustomComponent {
 
 	private Form buildForm() {
 		form = new Form();
+		form.setFormFieldFactory(new ExpenseFieldFactory());
 		form.setItemDataSource(new BeanItem<Expense>(new Expense()));
 		return form;
 	}
