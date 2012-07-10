@@ -53,6 +53,8 @@ public class ExpenseForm extends CustomComponent implements ClickListener {
 		form.setFormFieldFactory(new ExpenseFieldFactory());
 		form.setItemDataSource(new BeanItem<Expense>(expense));
 		form.setVisibleItemProperties(new Object[] { "transactionDate", "summary", "amount"});
+		form.setValidationVisible(true);
+		form.setImmediate(true);
 		return form;
 	}
 

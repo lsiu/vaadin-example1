@@ -17,6 +17,8 @@ public class ExpenseFieldFactory extends DefaultFieldFactory {
 			field.setPropertyDataSource(item.getItemProperty(propertyId));
 			field.setNullRepresentation("");
 			field.setWidth("100%");
+			field.setRequired(true);
+			field.setRequiredError("Summary of expense is required");
 			return field;
 		}
 		Field field = super.createField(item, propertyId, uiContext);
