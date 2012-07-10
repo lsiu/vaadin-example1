@@ -36,6 +36,7 @@ public class ExpenseForm extends CustomComponent implements ClickListener {
 	
 	public void buttonClick(ClickEvent event) {
 		if (event.getButton() == saveButton) {
+			form.commit();
 			Expense expense = expenseItem.getBean();
 			String msg = String.format("Date: %s, Summary: %s, Amount: %s", 
 					expense.getTransactionDate(),
@@ -58,6 +59,7 @@ public class ExpenseForm extends CustomComponent implements ClickListener {
 		form.setVisibleItemProperties(new Object[] { "transactionDate", "summary", "amount"});
 		form.setValidationVisible(true);
 		form.setImmediate(true);
+		form.setWriteThrough(false);
 		return form;
 	}
 
