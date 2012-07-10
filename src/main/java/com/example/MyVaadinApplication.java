@@ -16,6 +16,7 @@
 package com.example;
 
 import com.example.ui.ExpenseForm;
+import com.example.ui.ExpenseTable;
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
@@ -45,6 +46,7 @@ public class MyVaadinApplication extends Application
             }
         });
         window.addComponent(button);
+        window.addComponent(new ExpenseTable());
         
     }
     
