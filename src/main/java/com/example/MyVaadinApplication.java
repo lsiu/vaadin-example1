@@ -15,10 +15,10 @@
  */
 package com.example;
 
+import com.example.ui.ExpenseForm;
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
 
 /**
@@ -37,7 +37,11 @@ public class MyVaadinApplication extends Application
         Button button = new Button("Click Me");
         button.addListener(new Button.ClickListener() {
             public void buttonClick(ClickEvent event) {
-                window.addComponent(new Label("Thank you for clicking"));
+                Window newWindow = new Window("Expense Form");
+                newWindow.setModal(true);
+                newWindow.addComponent(new ExpenseForm());
+                newWindow.getContent().setSizeUndefined();
+                window.addWindow(newWindow);
             }
         });
         window.addComponent(button);
