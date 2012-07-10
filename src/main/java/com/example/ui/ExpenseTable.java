@@ -51,7 +51,7 @@ public class ExpenseTable extends CustomComponent implements Handler {
 		if (action == addAction) {
             Window newWindow = new Window("Add Expense Form");
             newWindow.setModal(true);
-            newWindow.addComponent(new ExpenseForm());
+            newWindow.addComponent(new ExpenseForm(container.addBean(new Expense())));
             newWindow.getContent().setSizeUndefined();
             getWindow().addWindow(newWindow);
 		}

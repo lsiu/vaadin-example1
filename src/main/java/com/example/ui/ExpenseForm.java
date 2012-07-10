@@ -18,9 +18,11 @@ public class ExpenseForm extends CustomComponent implements ClickListener {
 	private VerticalLayout mainLayout;
 	private Form form;
 	private Button saveButton = new Button("Save", this);
-	private Expense expense = new Expense();
+	private BeanItem<Expense> expenseItem;
 
-	public ExpenseForm() {
+	public ExpenseForm(BeanItem<Expense> expenseItem) {
+		this.expenseItem = expenseItem;
+		
 		initMainLayout();
 		this.setCompositionRoot(mainLayout);
 		
@@ -34,6 +36,7 @@ public class ExpenseForm extends CustomComponent implements ClickListener {
 	
 	public void buttonClick(ClickEvent event) {
 		if (event.getButton() == saveButton) {
+			Expense expense = expenseItem.getBean();
 			String msg = String.format("Date: %s, Summary: %s, Amount: %s", 
 					expense.getTransactionDate(),
 					expense.getSummary(),
@@ -51,7 +54,7 @@ public class ExpenseForm extends CustomComponent implements ClickListener {
 	private Form buildForm() {
 		form = new Form();
 		form.setFormFieldFactory(new ExpenseFieldFactory());
-		form.setItemDataSource(new BeanItem<Expense>(expense));
+		form.setItemDataSource(expenseItem);
 		form.setVisibleItemProperties(new Object[] { "transactionDate", "summary", "amount"});
 		form.setValidationVisible(true);
 		form.setImmediate(true);
